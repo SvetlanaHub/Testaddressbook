@@ -1,17 +1,21 @@
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.Driver;
+
 import java.time.Duration;
 
-public class AddingAnAddress {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
-    public static void main(String[] args) {
+public class AddingAnAddress extends StartAndClose {
 
-        System.setProperty("webdriver.chrome.driver", "c:\\chromedriver\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    private WebDriver driver = Driver.getChromeDriver();
+
+        @Test
+        public void addindAnAddress (){
         driver.get("http://a.testaddressbook.com/sign_in");
         driver.findElement(By.cssSelector("#session_email")).sendKeys("mail12@gmail.com");
         driver.findElement(By.cssSelector("#session_password")).sendKeys("12467-A");
