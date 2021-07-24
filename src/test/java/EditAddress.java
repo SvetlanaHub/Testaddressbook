@@ -24,6 +24,7 @@ public class EditAddress extends StartAndClose {
         driver.findElement(By.id("address_phone")).clear();
         driver.findElement(By.id("address_phone")).sendKeys("+1 212 691-509-210");
         driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
+
         driver.quit();
 
     }

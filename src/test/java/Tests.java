@@ -5,13 +5,17 @@ import utils.Driver;
 import utils.Log;
 import static locators.AllLocators.*;
 import org.openqa.selenium.WebElement;
+import java.io.File;
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
 public class Tests {
 
     private WebDriver driver = Driver.getChromeDriver();
+
+    private static final String PICTURE = new File("src/main/resources/address_book.png").getAbsolutePath();
 
     @BeforeAll
     public void setUp() {
@@ -19,7 +23,7 @@ public class Tests {
         Log.info("Open the page a.testaddressbook.com/sign_in");
         driver.get("http://a.testaddressbook.com/sign_in");
 
-        Log.info("We check that the user can log in to the site");
+        Log.info("We check that the user can sign in to the site");
 
         Log.info("In the 'Email' field, enter the value 'mail12@gmail.com'");
         driver.findElement(EMAIL_FIELD).sendKeys("mail12@gmail.com");
@@ -30,7 +34,7 @@ public class Tests {
         Log.info("Click on the 'Sign in' button");
         driver.findElement(SIGN_IN_BUTTON).click();
 
-        Log.info("Finding text on the page log in 'Welcome to Address Book' ");
+        Log.info("Finding text on the page sign in 'Welcome to Address Book' ");
         WebElement text = driver.findElement(TEXT);
 
         Log.info("Getting the text on the page");
@@ -44,6 +48,7 @@ public class Tests {
     @Test
     @Order(1)
     @DisplayName("Checking the address addition")
+
     public void addingAnAddress() {
 
         Log.info("Finding an addresses link and clicking on it");
@@ -51,7 +56,6 @@ public class Tests {
 
         Log.info("Finding an new address link and clicking on it");
         driver.findElement(NEW_ADDRESS_LINK).click();
-        //driver.findElement(By.xpath("//a[contains(text(),'New Address')]")).click();
 
         Log.info("In the 'First name' field, enter the value 'Julia'");
         driver.findElement(FIRST_NAME_FIELD).sendKeys("Julia");
@@ -91,7 +95,7 @@ public class Tests {
 
         Log.info("In the 'Picture' field, select the picture'");
         WebElement uploadElement = driver.findElement(PICTURE_FIELD);
-        uploadElement.sendKeys("./src/main/resources/address_book.png");
+        uploadElement.sendKeys(PICTURE);
 
         Log.info("In the 'Phone' field, enter the value '+1 212 678-193-206'");
         driver.findElement(PHONE_FIELD).sendKeys("+1 212 678-193-206");
@@ -105,28 +109,60 @@ public class Tests {
         Log.info("Click the button 'Create Address'");
         driver.findElement(CREATE_ADDRESS_BUTTON).click();
 
-        //Log.info("Finding text on the page 'Welcome to Address Book' ");
-        //WebElement text = driver.findElement(TEXT);
+        Log.info("Find the text on the page to add the address 'Address was successfully created.'");
+        WebElement text = driver.findElement(MESSAGE);
 
-        //Log.info("Getting the text on the page");
-        //String textTitle = text.getText();
+        Log.info("Getting the text on the page");
+        String textTitle = text.getText();
 
-        //Log.info("Checking the message :'Welcome to Address Book'");
-        //Assertions.assertEquals("Welcome to Address Book", textTitle, "Error: user is not logged in");
-
-    }
-
-
-
-
-    @AfterAll
-    public void tearDown() {
-
-        Log.info("Close the browser");
-        driver.quit();
+        Log.info("Checking the message :'Welcome to Address Book'");
+        Assertions.assertEquals("Address was successfully created.", textTitle, "Error: No address added");
 
     }
 
-}
+    @Test
+    @Order(2)
+    @DisplayName("Checking the change of address")
+
+    public void editAnAddress () {
+
+        Log.info("Finding an addresses link and clicking on it");
+        driver.findElement(ADDRESSES_LINK).click();
+
+        Log.info("Finding an edit link and clicking on it");
+        driver.findElement(EDIT_LINK).click();
+
+        Log.info("Delete the entry in the address field 1");
+        driver.findElement(ADDRESS1_FIELD).clear();
+
+        Log.info("In the 'Address1' field, enter the value 'Fulton Street'");
+        driver.findElement(ADDRESS1_FIELD).sendKeys("Fulton Street");
+
+        Log.info("Delete the entry in the address field 2");
+        driver.findElement(ADDRESS2_FIELD).clear();
+
+        Log.info("In the 'Address2' field, enter the value 'Park Avenue'");
+        driver.findElement(ADDRESS2_FIELD).sendKeys("Park Avenue");
+
+        Log.info("Delete the entry in the phone field ");
+        driver.findElement(PHONE_FIELD).clear();
+
+        Log.info("In the 'Phone' field, enter the value '+1 212 691-509-210'");
+        driver.findElement(By.id("address_phone")).sendKeys("+1 212 691-509-210");
+
+        //Log.info("Click the button 'Create Address'");
+        driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
+
+    }
+
+    //@AfterAll
+    //public void tearDown() {
+
+        //Log.info("Close the browser");
+        //driver.quit();
+
+    }
+
+//}
 
 

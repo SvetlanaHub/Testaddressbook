@@ -4,12 +4,14 @@ import org.openqa.selenium.By;
 public class AllLocators {
 
     //Locators to login to the site
+
     public static final By EMAIL_FIELD = By.cssSelector("#session_email");
     public static final By PASSWORD_FIELD = By.cssSelector("#session_password");
     public static final By SIGN_IN_BUTTON = By.xpath("//input[@value ='Sign in']");
     public static final By TEXT = By.xpath("//h1[text()='Welcome to Address Book']");
 
     //Locators for adding an address
+
     public static final By ADDRESSES_LINK = By.xpath("//a[@href='/addresses']");
     public static final By NEW_ADDRESS_LINK = By.xpath("//a[@href='/addresses/new']");
     public static final By FIRST_NAME_FIELD = By.cssSelector("#address_first_name");
@@ -29,20 +31,19 @@ public class AllLocators {
     public static final By COMMON_INTEREST_FIELD = By.id("address_interest_read");
     public static final By NOTE_FIELD = By.id("address_note");
     public static final By CREATE_ADDRESS_BUTTON = By.xpath("//input[@class='btn btn-primary']");
-
-
-
+    public static final By MESSAGE = By.xpath("//div[contains(text(),'Address was successfully created.')]");
 
     //Locators for address change
+
+    public static final By EDIT_LINK = By.xpath("//a[text()='Edit']");
+
+
 
     //Locators for address deletion
 
     //Locators for user logout
 
 
-    public static final By BOOKS = By.cssSelector(".item-type-card__content .item-type-card__link");
 
-    public static final By DISCOUNT = By.xpath("//*[contains(text(), 'Акции и скидки')]");
-    public static final By CATEGORY_DISCOUNT = By.cssSelector(".landing-nav-list__item");
 
 }
