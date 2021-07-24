@@ -31,12 +31,13 @@ public class AllLocators {
     public static final By COMMON_INTEREST_FIELD = By.id("address_interest_read");
     public static final By NOTE_FIELD = By.id("address_note");
     public static final By CREATE_ADDRESS_BUTTON = By.xpath("//input[@class='btn btn-primary']");
-    public static final By MESSAGE = By.xpath("//div[contains(text(),'Address was successfully created.')]");
+    public static final By MESSAGE_ADD = By.xpath("//div[contains(text(),'Address was successfully created.')]");
 
     //Locators for address change
 
     public static final By EDIT_LINK = By.xpath("//a[text()='Edit']");
-
+    public static final By UPDATE_ADDRESS_BUTTON = By.cssSelector("input.btn.btn-primary");
+    public static final By MESSAGE_EDIT = By.xpath("//div[contains(text(),'Address was successfully updated.')]");
 
 
     //Locators for address deletion

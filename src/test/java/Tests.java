@@ -110,12 +110,12 @@ public class Tests {
         driver.findElement(CREATE_ADDRESS_BUTTON).click();
 
         Log.info("Find the text on the page to add the address 'Address was successfully created.'");
-        WebElement text = driver.findElement(MESSAGE);
+        WebElement text = driver.findElement(MESSAGE_ADD);
 
         Log.info("Getting the text on the page");
         String textTitle = text.getText();
 
-        Log.info("Checking the message :'Welcome to Address Book'");
+        Log.info("Checking the message :'Address was successfully created.'");
         Assertions.assertEquals("Address was successfully created.", textTitle, "Error: No address added");
 
     }
@@ -148,21 +148,30 @@ public class Tests {
         driver.findElement(PHONE_FIELD).clear();
 
         Log.info("In the 'Phone' field, enter the value '+1 212 691-509-210'");
-        driver.findElement(By.id("address_phone")).sendKeys("+1 212 691-509-210");
+        driver.findElement(PHONE_FIELD).sendKeys("+1 212 691-509-210");
 
-        //Log.info("Click the button 'Create Address'");
-        driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
+        Log.info("Click the button 'Update Address'");
+        driver.findElement(UPDATE_ADDRESS_BUTTON).click();
+
+        Log.info("Find the text on the page to edit the address 'Address was successfully updated.'");
+        WebElement text = driver.findElement(MESSAGE_EDIT);
+
+        Log.info("Getting the text on the page");
+        String textTitle = text.getText();
+
+        Log.info("Checking the message :'Address was successfully updated.'");
+        Assertions.assertEquals("Address was successfully updated.", textTitle, "Error: address not changed");
 
     }
 
-    //@AfterAll
-    //public void tearDown() {
+    @AfterAll
+    public void tearDown() {
 
-        //Log.info("Close the browser");
-        //driver.quit();
+        Log.info("Close the browser");
+        driver.quit();
 
     }
 
-//}
+}
 
 
