@@ -13,9 +13,9 @@ public class AddingAnAddress extends StartAndClose {
 
         @Test
         public void addindAnAddress (){
-        driver.findElement(By.cssSelector("#session_email")).sendKeys("mail12@gmail.com");
-        driver.findElement(By.cssSelector("#session_password")).sendKeys("12467-A");
-        driver.findElement(By.xpath("//input[@value ='Sign in']")).click();
+        //driver.findElement(By.cssSelector("#session_email")).sendKeys("mail12@gmail.com");
+        //driver.findElement(By.cssSelector("#session_password")).sendKeys("12467-A");
+        //driver.findElement(By.xpath("//input[@value ='Sign in']")).click();
         driver.findElement(By.xpath("//a[@href='/addresses']")).click();
         driver.findElement(By.xpath("//a[@href='/addresses/new']")).click();
         driver.findElement(By.cssSelector("#address_first_name")).sendKeys("Julia");
@@ -31,7 +31,7 @@ public class AddingAnAddress extends StartAndClose {
         driver.findElement(By.id("address_age")).sendKeys("68");
         driver.findElement(By.id("address_website")).sendKeys("https://www.whitepages.com");
         WebElement uploadElement = driver.findElement (By.cssSelector("#address_picture"));
-        uploadElement.sendKeys("c:\\Users\\Svetik\\Downloads\\address_book.png");
+        uploadElement.sendKeys("src/main/resources/address_book.png");
         driver.findElement(By.xpath("//input[@type='tel']")).sendKeys("+1 212 678-193-206");
         driver.findElement(By.id("address_interest_read")).click();
         driver.findElement(By.id("address_note")).sendKeys("_");
