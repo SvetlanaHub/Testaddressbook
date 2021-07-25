@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.Driver;
 import utils.Log;
@@ -197,13 +196,12 @@ public class Tests {
         Log.info("We check that the user can sign out of the site");
         driver.findElement(SIGN_OUT_LINK).click();
 
+        Log.info("Сheck that the user has sign out the site and is on the page sign in");
+        String currentURL = driver.getCurrentUrl();
+        Assertions.assertEquals("http://a.testaddressbook.com/sign_in", currentURL, "A page not logging into the site is open or an incorrect URL is specified");
 
-
-
-
-
-        //Log.info("Close the browser");
-        //driver.quit();
+        Log.info("Close the browser");
+        driver.quit();
 
     }
 
