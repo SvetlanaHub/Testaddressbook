@@ -18,6 +18,7 @@ public class Tests {
     private static final String PICTURE = new File("src/main/resources/address_book.png").getAbsolutePath();
 
     @BeforeAll
+
     public void setUp() {
 
         Log.info("Open the page a.testaddressbook.com/sign_in");
@@ -41,7 +42,7 @@ public class Tests {
         String textTitle = text.getText();
 
         Log.info("Checking the message :'Welcome to Address Book'");
-        Assertions.assertEquals("Welcome to Address Book", textTitle, "Error: user is not logged in");
+        Assertions.assertEquals("Welcome to Address Book", textTitle, "Error: user is not sign in");
 
     }
 
@@ -164,11 +165,45 @@ public class Tests {
 
     }
 
+    @Test
+    @Order(3)
+    @DisplayName("Checking for address deletion")
+
+    public void deletingAnAddress (){
+
+        Log.info("Finding an addresses link and clicking on it");
+        driver.findElement(ADDRESSES_LINK).click();
+
+        Log.info("Finding a destroy link and clicking on it");
+        driver.findElement(DESTROY_LINK).click();
+
+        Log.info("In the pop-up window, click OK");
+        driver.switchTo().alert().accept();
+
+        Log.info("Find the text on the page to edit the address 'Address was successfully destroyed.'");
+        WebElement text = driver.findElement(MESSAGE_DELETE);
+
+        Log.info("Getting the text on the page");
+        String textTitle = text.getText();
+
+        Log.info("Checking the message :'Address was successfully destroyed.'");
+        Assertions.assertEquals("Address was successfully destroyed.", textTitle, "Error: the address was not deleted");
+
+    }
+
     @AfterAll
     public void tearDown() {
 
-        Log.info("Close the browser");
-        driver.quit();
+        Log.info("We check that the user can sign out of the site");
+        driver.findElement(SIGN_OUT_LINK).click();
+
+
+
+
+
+
+        //Log.info("Close the browser");
+        //driver.quit();
 
     }
 

@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 
 public class AllLocators {
 
-    //Locators to login to the site
+    //Locators to sign in to the site
 
     public static final By EMAIL_FIELD = By.cssSelector("#session_email");
     public static final By PASSWORD_FIELD = By.cssSelector("#session_password");
@@ -39,11 +39,14 @@ public class AllLocators {
     public static final By UPDATE_ADDRESS_BUTTON = By.cssSelector("input.btn.btn-primary");
     public static final By MESSAGE_EDIT = By.xpath("//div[contains(text(),'Address was successfully updated.')]");
 
-
     //Locators for address deletion
 
-    //Locators for user logout
+    public static final By DESTROY_LINK = By.xpath("//a[text()='Destroy']");
+    public static final By MESSAGE_DELETE = By.xpath("//div[contains(text(),'Address was successfully destroyed.')]");
 
+    //Locators for user sign out
+
+    public static final By SIGN_OUT_LINK = By.xpath("//a[@data-test='sign-out']");
 
 
 

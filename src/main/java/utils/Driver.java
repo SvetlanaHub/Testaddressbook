@@ -10,16 +10,20 @@ public class Driver {
     private static WebDriver driver;
 
     private static void initializeChromeDriver() {
+
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     public static WebDriver getChromeDriver() {
+
         initializeChromeDriver();
         return driver;
+        
     }
 
 }
