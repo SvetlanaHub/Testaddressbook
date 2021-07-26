@@ -48,6 +48,4 @@ public class AllLocators {
 
     public static final By SIGN_OUT_LINK = By.xpath("//a[@data-test='sign-out']");
 
-
-
 }
