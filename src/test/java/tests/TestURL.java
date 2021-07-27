@@ -9,7 +9,7 @@ import utils.Log;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-public class URL {
+public class TestURL {
 
     private WebDriver driver = Driver.getChromeDriver();
 
@@ -22,7 +22,7 @@ public class URL {
     }
 
     @Test
-    @Order(4)
+    @Order(1)
     @DisplayName("We check if the URL of the site's login page is correct")
 
     public void urlPage() {

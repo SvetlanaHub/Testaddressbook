@@ -123,7 +123,7 @@ public class Tests {
     }
 
     @Test
-    @Disabled("Ignore test")
+    @Disabled
     @DisplayName("Checking the change of address")
 
     public void editAnAddress () {
@@ -167,7 +167,7 @@ public class Tests {
     }
 
     @Test
-    @Disabled("Ignore test")
+    @Disabled
     @DisplayName("Checking for address deletion")
 
     public void deletingAnAddress (){
