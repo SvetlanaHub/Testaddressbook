@@ -20,7 +20,6 @@ public class Tests {
     private static final String PICTURE = new File("src/main/resources/address_book.png").getAbsolutePath();
 
     @BeforeAll
-
     public void setUp() {
 
         Log.info("Open the page a.testaddressbook.com/sign_in");
@@ -44,7 +43,7 @@ public class Tests {
         String textTitle = text.getText();
 
         Log.info("Checking the message :'Welcome to Address Book'");
-        Assertions.assertEquals("Welcome to Address Book", textTitle, "Error: user is not sign in");
+        Assertions.assertEquals("Welcome to Address Book", textTitle, "User is not sign in");
 
     }
 
@@ -119,7 +118,7 @@ public class Tests {
         String textTitle = text.getText();
 
         Log.info("Checking the message :'Address was successfully created.'");
-        Assertions.assertEquals("Address was successfully created.", textTitle, "Error: No address added");
+        Assertions.assertEquals("Address was successfully created.", textTitle, "No address added");
 
     }
 
@@ -189,7 +188,7 @@ public class Tests {
         String textTitle = text.getText();
 
         Log.info("Checking the message :'Address was successfully destroyed.'");
-        Assertions.assertEquals("Address was successfully destroyed.", textTitle, "Error: the address was not deleted");
+        Assertions.assertEquals("Address was successfully destroyed.", textTitle, "The address was not deleted");
 
     }
 
