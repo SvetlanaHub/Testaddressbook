@@ -2,7 +2,7 @@ package dataConstants;
 
 public class DataConstants {
 
-    // Sign in data
+    //Sign in data
 
     public static final CharSequence EMAIL = ("mail12@gmail.com");
     public static final CharSequence PASSWORD = ("12467-A");
