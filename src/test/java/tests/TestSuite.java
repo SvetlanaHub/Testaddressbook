@@ -7,6 +7,6 @@ import org.junit.platform.runner.JUnitPlatform;
 @RunWith(JUnitPlatform.class)
 @SelectClasses({Tests.class, URL.class})
 
-public class TestSuitesClasses {
+public class TestSuite {
 
 }
