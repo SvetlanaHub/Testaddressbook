@@ -123,7 +123,7 @@ public class Tests {
     }
 
     @Test
-    @Disabled
+    @Order(2)
     @DisplayName("Checking the change of address")
 
     public void editAnAddress () {
